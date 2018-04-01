@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Professordk.iml" filepath="$PROJECT_DIR$/Professordk.iml" />
+      <module fileurl="file://D:\Softwares\AndroidProjects\proffesordk\Professordk.iml" filepath="D:\Softwares\AndroidProjects\proffesordk\Professordk.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proffesordk.iml" filepath="$PROJECT_DIR$/proffesordk.iml" />
     </modules>
   </component>
 </project>

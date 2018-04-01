@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -21,8 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Forgotpassword extends AppCompatActivity {
 
-    EditText  et_Email;
-    Button   btn_reset_password;
+    EditText et_Email;
+    Button btn_reset_password;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -31,40 +30,30 @@ public class Forgotpassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgotpassword);
 
         et_Email = findViewById(R.id.et_forgot_password);
-        btn_reset_password  =findViewById(R.id.btn_submit);
+        btn_reset_password = findViewById(R.id.btn_submit);
 
         firebaseAuth = FirebaseAuth.getInstance();
         btn_reset_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                try{
-
+                try {
                     String email = et_Email.getText().toString();
                     firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-
-                            if(task.isSuccessful())
-                            {
-                                Toast.makeText(Forgotpassword.this, "password reset email sent", Toast.LENGTH_SHORT).show(); finish();
-                                startActivity(new Intent(getApplicationContext(),Signin.class));
-                                
-                            }
-                            else {
-
+                            if (task.isSuccessful()) {
+                                Toast.makeText(Forgotpassword.this, "password reset email sent", Toast.LENGTH_SHORT).show();
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), Signin.class));
+                            } else {
+                                System.out.println("Error: " +  task.getException().getMessage());
                                 Toast.makeText(Forgotpassword.this, "Error in sending reset email", Toast.LENGTH_SHORT).show();
                             }
-                            
                         }
                     });
-
-
-
-                }catch (Exception e)
-                {
+                } catch (Exception e) {
                     System.out.println(e);
-                    Toast.makeText(Forgotpassword.this, ""+e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Forgotpassword.this, "" + e.getMessage().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

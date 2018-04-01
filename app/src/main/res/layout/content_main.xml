@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/et_email"
             android:maxLines="1"
-
             android:hint="Email" />
 
 
@@ -29,9 +28,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true"
-
-        >
+        app:passwordToggleEnabled="true">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
